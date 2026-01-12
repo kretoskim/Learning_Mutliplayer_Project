@@ -73,8 +73,10 @@
   <Project Path="Unity.Mathematics.Editor.csproj" />
   <Project Path="Unity.VisualScripting.SettingsProvider.Editor.csproj" />
   <Project Path="Unity.Multiplayer.Tools.NetVis.Configuration.csproj" />
+  <Project Path="Unity.Multiplayer.Samples.Utilities.csproj" />
   <Project Path="QFSW.QC.Serializers.csproj" />
   <Project Path="Unity.Multiplayer.Tools.NetworkSolutionInterface.csproj" />
+  <Project Path="Unity.Multiplayer.Samples.Utilities.RNSM.csproj" />
   <Project Path="QFSW.QC.Suggestors.csproj" />
   <Project Path="QFSW.QC.QGUI.csproj" />
   <Project Path="Unity.InputSystem.TestFramework.csproj" />
@@ -90,6 +92,7 @@
   <Project Path="Unity.RenderPipeline.Universal.ShaderLibrary.csproj" />
   <Project Path="QFSW.QC.Demo.csproj" />
   <Project Path="QFSW.QC.Editor.Tools.csproj" />
+  <Project Path="Unity.Multiplayer.Samples.Utilities.ClientAuthority.csproj" />
   <Project Path="Unity.Multiplayer.Tools.Editor.csproj" />
   <Project Path="Unity.Multiplayer.Tools.NetVis.Editor.Visualization.csproj" />
   <Project Path="Unity.Rendering.LightTransport.Editor.csproj" />
