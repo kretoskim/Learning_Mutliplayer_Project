@@ -22,6 +22,7 @@
   <Project Path="Unity.Multiplayer.Tools.NetworkProfiler.Editor.csproj" />
   <Project Path="Unity.VisualScripting.Flow.Editor.csproj" />
   <Project Path="Unity.Netcode.Runtime.csproj" />
+  <Project Path="Cinemachine.csproj" />
   <Project Path="QFSW.QC.Extras.csproj" />
   <Project Path="Unity.VisualStudio.Editor.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
@@ -42,12 +43,14 @@
   <Project Path="Unity.Multiplayer.Tools.Common.csproj" />
   <Project Path="Unity.VisualScripting.Flow.csproj" />
   <Project Path="Unity.PerformanceTesting.csproj" />
+  <Project Path="Unity.PackageValidationSuite.Editor.csproj" />
   <Project Path="Unity.Multiplayer.Tools.NetStatsMonitor.Implementation.csproj" />
   <Project Path="Unity.TextMeshPro.csproj" />
   <Project Path="Unity.TextMeshPro.Editor.csproj" />
   <Project Path="Unity.Rendering.LightTransport.Runtime.csproj" />
   <Project Path="Unity.Multiplayer.Tools.NetStatsMonitor.Component.csproj" />
   <Project Path="QFSW.QC.Parsers.csproj" />
+  <Project Path="com.unity.cinemachine.editor.csproj" />
   <Project Path="Unity.Burst.Editor.csproj" />
   <Project Path="Unity.Multiplayer.Tools.Initialization.csproj" />
   <Project Path="Unity.Networking.Transport.csproj" />
@@ -77,6 +80,7 @@
   <Project Path="QFSW.QC.Serializers.csproj" />
   <Project Path="Unity.Multiplayer.Tools.NetworkSolutionInterface.csproj" />
   <Project Path="Unity.Multiplayer.Samples.Utilities.RNSM.csproj" />
+  <Project Path="Unity.PackageValidationSuite.Editor.Extension.csproj" />
   <Project Path="QFSW.QC.Suggestors.csproj" />
   <Project Path="QFSW.QC.QGUI.csproj" />
   <Project Path="Unity.InputSystem.TestFramework.csproj" />
