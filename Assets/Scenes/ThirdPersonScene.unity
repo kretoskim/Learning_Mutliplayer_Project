@@ -707,7 +707,7 @@ MonoBehaviour:
   m_MaxConnectAttempts: 60
   m_DisconnectTimeoutMS: 30000
   ConnectionData:
-    Address: 192.168.1.100
+    Address: 192.168.1.113
     Port: 7777
     ServerListenAddress: 127.0.0.1
     ClientBindPort: 0
@@ -1069,6 +1069,8 @@ MonoBehaviour:
   serverButton: {fileID: 1050800875}
   hostButton: {fileID: 848184378}
   clientButton: {fileID: 1132461467}
+  ipAddress: 192.168.1.113
+  port: 7777
 --- !u!1 &1132461465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1607,7 +1609,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4845276930943762971, guid: 2da3dcc22749e7f4280737786d898334, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000061035156
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4845637959249703711, guid: 2da3dcc22749e7f4280737786d898334, type: 3}
       propertyPath: m_AnchorMax.y

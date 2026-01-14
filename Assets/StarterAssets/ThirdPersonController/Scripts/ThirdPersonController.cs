@@ -130,11 +130,26 @@ namespace StarterAssets
 
             PlayerInput playerInput = GetComponent<PlayerInput>();
 
-            playerInput.SwitchCurrentControlScheme(
-                "KeyboardMouse",
-                Keyboard.current,
-                Mouse.current
-            );
+             // Prefer gamepad if available
+            if (Gamepad.current != null)
+            {
+                playerInput.SwitchCurrentControlScheme(
+                    "Gamepad",
+                    Gamepad.current
+                );
+
+                Debug.Log("[INPUT] Gamepad detected → using Gamepad scheme");
+            }
+            else
+            {
+                playerInput.SwitchCurrentControlScheme(
+                    "KeyboardMouse",
+                    Keyboard.current,
+                    Mouse.current
+                );
+
+                Debug.Log("[INPUT] No gamepad → using KeyboardMouse scheme");
+            }
         #endif
         }
 
