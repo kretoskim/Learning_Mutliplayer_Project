@@ -1,3 +1,4 @@
+using System;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using UnityEngine;
@@ -14,51 +15,47 @@ public class NetworkManagerUI : MonoBehaviour
 
     private void Awake()
     {
-        hostButton.onClick.AddListener (StartHostWithDebug);
-        clientButton.onClick.AddListener (StartClientWithIP);
+        hostButton.onClick.AddListener(StartHostWithDebug);
+        clientButton.onClick.AddListener(StartClientWithIP); 
     }
+
     private void StartHostWithDebug()
     {
         var transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
-        if (transport == null)
+
+        if(transport == null)
         {
-            Debug.LogError("[HOST] UnityTransport component not found!");
+            Debug.LogError("[HOST] UnityTransport component not found");
             return;
         }
-
         Debug.Log("[HOST DEBUG] Preparing to start host...");
 
-        transport.SetConnectionData(
-            serverIp,  // Client address
-            serverPort,
-            "0.0.0.0"   // Server listen address (CRITICAL)
-        );
+        transport.SetConnectionData(serverIp, serverPort, "0.0.0.0");
 
         Debug.Log($"[HOST DEBUG] Host listening on {serverIp}:{serverPort}");
 
         NetworkManager.Singleton.StartHost();
 
-        Debug.Log("[HOST] StartHost() called.");
+        Debug.Log("[HOST] Starthost() called");
     }
 
     private void StartClientWithIP()
     {
-        if (string.IsNullOrWhiteSpace(serverIp))
+        if(string.IsNullOrWhiteSpace(serverIp))
         {
-            Debug.LogError("[UI] Server IP is empty in Inspector!");
+            Debug.LogError("[UI] Server IP is empty in inspector");
             return;
         }
-
         var transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
-        if (transport == null)
+
+        if(transport == null)
         {
-            Debug.LogError("[UI] No UnityTransport component found!");
+            Debug.LogError("[UI] No Unity transport component found");
             return;
         }
-
         transport.SetConnectionData(serverIp.Trim(), serverPort);
 
-        Debug.Log($"[CLIENT UI] Starting client → connecting to {serverIp}:{serverPort}");
+        Debug.Log($"[CLIENT UI] Starting client -> connecting to {serverIp}:{serverPort}");
 
         NetworkManager.Singleton.StartClient();
     }
