@@ -2,12 +2,9 @@ using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using System;
 
 public class NetworkManagerUI : MonoBehaviour
 {
-    //[SerializeField] Button serverButton;
     [SerializeField] Button hostButton;
     [SerializeField] Button clientButton;
 
@@ -17,34 +14,32 @@ public class NetworkManagerUI : MonoBehaviour
 
     private void Awake()
     {
-        //serverButton.onClick.AddListener (()=> {NetworkManager.Singleton.StartServer();});
         hostButton.onClick.AddListener (StartHostWithDebug);
         clientButton.onClick.AddListener (StartClientWithIP);
-
     }
     private void StartHostWithDebug()
-{
-    var transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
-    if (transport == null)
     {
-        Debug.LogError("[HOST] UnityTransport component not found!");
-        return;
+        var transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
+        if (transport == null)
+        {
+            Debug.LogError("[HOST] UnityTransport component not found!");
+            return;
+        }
+
+        Debug.Log("[HOST DEBUG] Preparing to start host...");
+
+        transport.SetConnectionData(
+            serverIp,  // Client address
+            serverPort,
+            "0.0.0.0"   // Server listen address (CRITICAL)
+        );
+
+        Debug.Log($"[HOST DEBUG] Host listening on {serverIp}:{serverPort}");
+
+        NetworkManager.Singleton.StartHost();
+
+        Debug.Log("[HOST] StartHost() called.");
     }
-
-    Debug.Log("[HOST DEBUG] Preparing to start host...");
-
-    transport.SetConnectionData(
-        serverIp,  // Client address
-        serverPort,
-        "0.0.0.0"   // Server listen address (CRITICAL)
-    );
-
-    Debug.Log($"[HOST DEBUG] Host listening on {serverIp}:{serverPort}");
-
-    NetworkManager.Singleton.StartHost();
-
-    Debug.Log("[HOST] StartHost() called.");
-}
 
     private void StartClientWithIP()
     {
