@@ -44,10 +44,17 @@ public class TestLobby : MonoBehaviour
         try
         {
             string lobbyName = "MyLobby";
-            int maxPlayers = 1;
-            Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers);
+            int maxPlayers = 4;
+            CreateLobbyOptions createLobbyOptions = new CreateLobbyOptions
+            {
+              IsPrivate = true,  
+            };
 
-            Debug.Log("Created Lobby " + lobby.Name + " " + lobby.MaxPlayers);
+            Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, createLobbyOptions);
+
+            hostLobby = lobby;
+
+            Debug.Log("Created Lobby " + lobby.Name + " " + lobby.MaxPlayers + " " + lobby.Id + " " + lobby.LobbyCode);
         }
         catch(LobbyServiceException e)
         {
@@ -82,6 +89,21 @@ public class TestLobby : MonoBehaviour
             }
         }
         
+        catch (LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
+    }
+
+    [Command]
+    private async void JoinLobbyByCode(string lobbyCode)
+    {
+        try
+        {   
+            await LobbyService.Instance.JoinLobbyByCodeAsync(lobbyCode);
+            
+            Debug.Log("Joined Lobby with code" + lobbyCode);
+        }        
         catch (LobbyServiceException e)
         {
             Debug.Log(e);
